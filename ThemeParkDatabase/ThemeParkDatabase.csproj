@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>aspnet-ThemeParkDatabase-5A1181D8-DDB4-4196-9EB3-A3A07697CE28</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180420002413_AddVendor.cs" />
+    <Compile Remove="Data\Migrations\20180420002413_AddVendor.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420002526_AddVendor.cs" />
+    <Compile Remove="Data\Migrations\20180420002526_AddVendor.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420002946_AddVendorSalesReport.cs" />
+    <Compile Remove="Data\Migrations\20180420002946_AddVendorSalesReport.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.2" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.1" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+</Project>

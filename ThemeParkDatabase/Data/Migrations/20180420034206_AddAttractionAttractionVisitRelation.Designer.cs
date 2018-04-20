@@ -11,9 +11,10 @@ using ThemeParkDatabase.Data;
 namespace ThemeParkDatabase.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180420034206_AddAttractionAttractionVisitRelation")]
+    partial class AddAttractionAttractionVisitRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,22 +185,14 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AttractionTypeId");
-
                     b.Property<string>("Description")
                         .IsRequired();
-
-                    b.Property<int>("LocationId");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AttractionTypeId");
-
-                    b.HasIndex("LocationId");
 
                     b.ToTable("Attractions");
                 });
@@ -338,8 +331,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AttractionId");
-
                     b.Property<string>("CurrentStatus")
                         .IsRequired();
 
@@ -353,8 +344,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.Property<decimal>("EstimatedCost");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AttractionId");
 
                     b.ToTable("MaintenanceRequests");
                 });
@@ -579,19 +568,6 @@ namespace ThemeParkDatabase.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ThemeParkDatabase.Data.Attraction", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.AttractionType", "AttractionType")
-                        .WithMany()
-                        .HasForeignKey("AttractionTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ThemeParkDatabase.Data.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("ThemeParkDatabase.Data.AttractionVisit", b =>
                 {
                     b.HasOne("ThemeParkDatabase.Data.Attraction", "Attraction")
@@ -617,14 +593,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.HasOne("ThemeParkDatabase.Data.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.MaintenanceRequest", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.Attraction", "Attraction")
-                        .WithMany("MaintenanceRequests")
-                        .HasForeignKey("AttractionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

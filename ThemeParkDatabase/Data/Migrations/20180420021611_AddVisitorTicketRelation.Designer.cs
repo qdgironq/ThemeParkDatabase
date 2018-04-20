@@ -11,9 +11,10 @@ using ThemeParkDatabase.Data;
 namespace ThemeParkDatabase.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180420021611_AddVisitorTicketRelation")]
+    partial class AddVisitorTicketRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,72 +180,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ThemeParkDatabase.Data.Attraction", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AttractionTypeId");
-
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<int>("LocationId");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttractionTypeId");
-
-                    b.HasIndex("LocationId");
-
-                    b.ToTable("Attractions");
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.AttractionType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AttractionTypes");
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.AttractionVisit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AttractionId");
-
-                    b.Property<DateTime>("Time");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttractionId");
-
-                    b.ToTable("AttractionVisits");
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.DailyParkReport", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("NumOfVisitors");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DailyParkReports");
-                });
-
             modelBuilder.Entity("ThemeParkDatabase.Data.DeletionRequest", b =>
                 {
                     b.Property<int>("Id")
@@ -263,62 +198,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.ToTable("DeletionRequests");
                 });
 
-            modelBuilder.Entity("ThemeParkDatabase.Data.Department", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("LocationId");
-
-                    b.Property<int?>("ManagerId");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LocationId");
-
-                    b.HasIndex("ManagerId");
-
-                    b.ToTable("Departments");
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.Employee", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("DepartmentId");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<DateTime>("HireDate");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("MiddleInitial")
-                        .IsRequired()
-                        .HasMaxLength(1);
-
-                    b.Property<decimal>("Salary");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(200);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.ToTable("Employees");
-                });
-
             modelBuilder.Entity("ThemeParkDatabase.Data.Location", b =>
                 {
                     b.Property<int>("Id")
@@ -331,32 +210,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.MaintenanceRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AttractionId");
-
-                    b.Property<string>("CurrentStatus")
-                        .IsRequired();
-
-                    b.Property<DateTime>("DateRequested");
-
-                    b.Property<DateTime?>("DateResolved");
-
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<decimal>("EstimatedCost");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttractionId");
-
-                    b.ToTable("MaintenanceRequests");
                 });
 
             modelBuilder.Entity("ThemeParkDatabase.Data.ParkInformation", b =>
@@ -396,13 +249,9 @@ namespace ThemeParkDatabase.Data.Migrations
 
                     b.Property<DateTime>("PurchaseDate");
 
-                    b.Property<int>("TicketTypeId");
-
                     b.Property<int>("VisitorId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TicketTypeId");
 
                     b.HasIndex("VisitorId");
 
@@ -511,29 +360,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.ToTable("Visitors");
                 });
 
-            modelBuilder.Entity("ThemeParkDatabase.Data.Weather", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("DailyParkReportId");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<float>("InchesOfRain");
-
-                    b.Property<bool>("Rainout");
-
-                    b.Property<float>("Temperature");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DailyParkReportId")
-                        .IsUnique();
-
-                    b.ToTable("Weathers");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -579,62 +405,8 @@ namespace ThemeParkDatabase.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ThemeParkDatabase.Data.Attraction", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.AttractionType", "AttractionType")
-                        .WithMany()
-                        .HasForeignKey("AttractionTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ThemeParkDatabase.Data.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.AttractionVisit", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.Attraction", "Attraction")
-                        .WithMany("AttractionVisits")
-                        .HasForeignKey("AttractionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.Department", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ThemeParkDatabase.Data.Employee", "Manager")
-                        .WithMany()
-                        .HasForeignKey("ManagerId");
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.Employee", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.Department", "Department")
-                        .WithMany("Employees")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.MaintenanceRequest", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.Attraction", "Attraction")
-                        .WithMany("MaintenanceRequests")
-                        .HasForeignKey("AttractionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("ThemeParkDatabase.Data.Ticket", b =>
                 {
-                    b.HasOne("ThemeParkDatabase.Data.TicketType", "TicketType")
-                        .WithMany()
-                        .HasForeignKey("TicketTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("ThemeParkDatabase.Data.Visitor", "Visitor")
                         .WithMany("Tickets")
                         .HasForeignKey("VisitorId")
@@ -654,14 +426,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.HasOne("ThemeParkDatabase.Data.Vendor", "Vendor")
                         .WithMany("VendorSalesReports")
                         .HasForeignKey("VendorId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ThemeParkDatabase.Data.Weather", b =>
-                {
-                    b.HasOne("ThemeParkDatabase.Data.DailyParkReport", "DailyParkReport")
-                        .WithOne("WeatherReport")
-                        .HasForeignKey("ThemeParkDatabase.Data.Weather", "DailyParkReportId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

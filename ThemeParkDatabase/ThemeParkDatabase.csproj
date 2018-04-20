@@ -10,6 +10,16 @@
     <Compile Remove="Data\Migrations\20180420002526_AddVendor.Designer.cs" />
     <Compile Remove="Data\Migrations\20180420002946_AddVendorSalesReport.cs" />
     <Compile Remove="Data\Migrations\20180420002946_AddVendorSalesReport.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420023857_AddDepartment.cs" />
+    <Compile Remove="Data\Migrations\20180420023857_AddDepartment.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420030714_AddDeptManagerEmployeeRelation.cs" />
+    <Compile Remove="Data\Migrations\20180420030714_AddDeptManagerEmployeeRelation.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420031138_AddDeptManagerEmployeeRelation.cs" />
+    <Compile Remove="Data\Migrations\20180420031138_AddDeptManagerEmployeeRelation.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420031207_AddDeptManagerEmployeeRelation.cs" />
+    <Compile Remove="Data\Migrations\20180420031207_AddDeptManagerEmployeeRelation.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180420032028_AddDeptManagerEmployeeRelation.cs" />
+    <Compile Remove="Data\Migrations\20180420032028_AddDeptManagerEmployeeRelation.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />

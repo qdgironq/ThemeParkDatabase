@@ -11,9 +11,10 @@ using ThemeParkDatabase.Data;
 namespace ThemeParkDatabase.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180420034444_AddAttractionMaintencanceRequestRelation")]
+    partial class AddAttractionMaintencanceRequestRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,8 +190,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<int>("LocationId");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -198,8 +197,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AttractionTypeId");
-
-                    b.HasIndex("LocationId");
 
                     b.ToTable("Attractions");
                 });
@@ -584,11 +581,6 @@ namespace ThemeParkDatabase.Data.Migrations
                     b.HasOne("ThemeParkDatabase.Data.AttractionType", "AttractionType")
                         .WithMany()
                         .HasForeignKey("AttractionTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ThemeParkDatabase.Data.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

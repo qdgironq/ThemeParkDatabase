@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ThemeParkDatabase.Data
 {
-    // Test git comment
-    public class Vendor
+    public class Attraction
     {
-        public Vendor()
+        public Attraction()
         {
-            VendorSalesReports = new HashSet<VendorSalesReport>();
+            AttractionVisits = new HashSet<AttractionVisit>();
+            MaintenanceRequests = new HashSet<MaintenanceRequest>();
         }
 
         public int Id { get; set; }
@@ -24,6 +24,11 @@ namespace ThemeParkDatabase.Data
         public int LocationId { get; set; }
         public Location Location { get; set; }
 
-        public virtual ICollection<VendorSalesReport> VendorSalesReports { get; set; }
+        public int AttractionTypeId { get; set; }
+        public AttractionType AttractionType { get; set; }
+
+        public virtual ICollection<AttractionVisit> AttractionVisits { get; set; }
+
+        public virtual ICollection<MaintenanceRequest> MaintenanceRequests { get; set; }
     }
 }

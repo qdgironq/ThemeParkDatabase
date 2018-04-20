@@ -5,7 +5,7 @@
 2. Install git, you can leave the defaults
 3. In your git bash run these commands
 	* `git config --global user.name "yourname"`  
-	* `git config --global user.email "your@githubemail"  
+	* `git config --global user.email "your@githubemail"`  
 4. Create/Find a new directoy to place the project  
 5. Open the git bash in the directory by right clicking in the 
 folder and choosing _git bash here_   
@@ -22,15 +22,15 @@ working.
 	* This should be done first, in the bottom right corner you  
 	see two arrows spliting apart that say master click on it.  
 	You should be in the Team Explorer.  
-	![branch_name] (/tutorial_images/branch_name.png)
+	![branch_name] (tutorial_images/branch_name.png)
 	* Click on new branch, and name it after yourself  
-	![branch_location] (/tutorial_images/branch_loc.png)
+	![branch_location] (tutorial_images/branch_loc.png)
 2. Fetch/Pull
 	* Click on the home button and click Sync, there should be   
 	nothing to sync since no changes have been made yet.  
 	* Click on fetch to get the latest updates made to the project,  
 	then click on pull to apply them to your branch.  
-	![fetch] (/tutorial_images/fetch.png)
+	![fetch] (tutorial_images/fetch.png)
 
 3. Commit/Push 
 	* After doing some work, click on the Team Explorer and click on   
@@ -43,7 +43,7 @@ working.
 	* Click commit all, click on the home button and click on sync, push  
 	commit though. Alternatively just click the arrow when you commit all  
 	and choose commit all and push.
-	![commit] (/tutorial_images/commit.png)
+	![commit] (tutorial_images/commit.png)
 
 4. Merge
 	* When you are ready to add your changes to the master branch, click   
@@ -55,7 +55,7 @@ working.
 	* Alternatively if you want to merge with other branches stay in your  
 	branch and when you click on branches fill in the name of another branch  
 	push it and you should have the commits of the other branch.
-	![merge] (/tutorial_images/merge.png)
+	![merge] (tutorial_images/merge.png)
 
 5. I messed up what do I do
 	* Hopefully you messed up on your own branch so you can just create another   

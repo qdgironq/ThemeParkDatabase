@@ -8,6 +8,12 @@ namespace ThemeParkDatabase.Data
 {
     public class Attraction
     {
+        public Attraction()
+        {
+            AttractionVisits = new HashSet<AttractionVisit>();
+            MaintenanceRequests = new HashSet<MaintenanceRequest>();
+        }
+
         public int Id { get; set; }
         [Required]
         [MaxLength(50)]

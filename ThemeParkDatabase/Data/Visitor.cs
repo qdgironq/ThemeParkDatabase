@@ -8,6 +8,11 @@ namespace ThemeParkDatabase.Data
 {
     public class Visitor
     {
+        public Visitor()
+        {
+            Tickets = new HashSet<Ticket>();
+        }
+
         public int Id { get; set; }
         [Required]
         [MaxLength(50)]

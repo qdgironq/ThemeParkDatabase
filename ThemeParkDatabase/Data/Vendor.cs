@@ -9,6 +9,11 @@ namespace ThemeParkDatabase.Data
     // Test git comment
     public class Vendor
     {
+        public Vendor()
+        {
+            VendorSalesReports = new HashSet<VendorSalesReport>();
+        }
+
         public int Id { get; set; }
         [Required]
         [MaxLength(50)]

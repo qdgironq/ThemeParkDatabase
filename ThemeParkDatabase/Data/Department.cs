@@ -8,6 +8,11 @@ namespace ThemeParkDatabase.Data
 {
     public class Department
     {
+        public Department()
+        {
+            Employees = new HashSet<Employee>();
+        }
+
         public int Id { get; set; }
         [Required]
         [MaxLength(255)]

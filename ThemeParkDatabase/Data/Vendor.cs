@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ThemeParkDatabase.Data
 {
+    // Test git comment
     public class Vendor
     {
         public int Id { get; set; }
